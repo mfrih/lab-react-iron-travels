@@ -18,20 +18,24 @@ function TravelList() {
             </div>
             <div>
               <h2>
-                {travelPlan.destination} {`(${travelPlan.days} days)`}
+                {travelPlan.destination} ({travelPlan.days} days)
               </h2>
               <p>{travelPlan.description}</p>
               <p>
                 <span>Price: </span>
                 {travelPlan.totalCost} €
               </p>
-              {travelPlan.totalCost <= greatDeal ? (
-                <span>Great Deal</span>
-              ) : null}
-              {travelPlan.totalCost > premiumPrice ? (
-                <span>Premium</span>
-              ) : null}
-              {travelPlan.allInclusive ? <span>All Inclusive</span> : null}
+              <p className="label-wrapper">
+                {travelPlan.totalCost <= greatDeal ? (
+                  <span className="Label">Great Deal</span>
+                ) : null}
+                {travelPlan.totalCost > premiumPrice ? (
+                  <span className="Label premium">Premium</span>
+                ) : null}
+                {travelPlan.allInclusive ? (
+                  <span className="Label premium">All Inclusive</span>
+                ) : null}
+              </p>
             </div>
           </div>
         );
